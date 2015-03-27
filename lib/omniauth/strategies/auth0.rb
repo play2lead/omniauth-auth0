@@ -11,7 +11,7 @@ module OmniAuth
 
       option :name, "auth0"
       option :namespace, nil
-      option :provider_ignores_state, true
+      option :provider_ignores_state, false
       option :connection
 
       args [:client_id, :client_secret, :namespace, :provider_ignores_state, :connection]
