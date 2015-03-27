@@ -65,6 +65,13 @@ describe OmniAuth::Strategies::Auth0 do
       subject.authorize_params.include?("state").should == true
       subject.authorize_params.include?("redirect_uri").should == true
     end
+
+    it 'should store random state in the session when none is present in authorize or request params' do
+      subject.authorize_params.keys.should include('state')
+      subject.authorize_params['state'].should_not be_empty
+      subject.session['omniauth.state'].should_not be_empty
+      subject.authorize_params['state'].should eq(subject.session['omniauth.state'])
+    end
   end
 
   describe "callback phase" do

@@ -34,6 +34,7 @@ module OmniAuth
           PASSTHROUGHS.each do |p|
             param[p.to_sym] = request.params[p] if request.params[p]
           end
+          session['omniauth.state'] = params[:state] if p == 'state'
           if @options.connection
             param[:connection] = @options.connection
           end
