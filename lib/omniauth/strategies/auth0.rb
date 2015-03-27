@@ -6,6 +6,7 @@ module OmniAuth
       PASSTHROUGHS = %w[
         connection
         redirect_uri
+        state
       ]
 
       option :name, "auth0"
